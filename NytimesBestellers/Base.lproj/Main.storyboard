@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XGr-yw-OYc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYK-9W-pyX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -7,22 +7,70 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hello-->
+        <!--NYTimes Bestsellers-->
         <scene sceneID="Rzt-Ul-t0y">
             <objects>
-                <tableViewController title="Hello" id="XGr-yw-OYc" sceneMemberID="viewController">
+                <tableViewController id="XGr-yw-OYc" customClass="BestsellerTableViewController" customModule="NytimesBestellers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qj2-kY-tc2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oa5-B4-hdU">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BestsellerCell" rowHeight="180" id="oa5-B4-hdU" customClass="BestsellerTableViewCell" customModule="NytimesBestellers" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oa5-B4-hdU" id="1du-5C-Tt1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-36-rbr">
+                                            <rect key="frame" x="40" y="31" width="334" height="118"/>
+                                            <color key="backgroundColor" red="0.56470588239999997" green="0.49803921569999998" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal">
+                                                <color key="titleColor" systemColor="labelColor"/>
+                                            </state>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-E3-pRB">
+                                            <rect key="frame" x="60" y="107" width="33" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rj9-G6-ZbV">
+                                            <rect key="frame" x="60" y="45" width="51.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4a-2U-lzL">
+                                            <rect key="frame" x="312" y="45" width="39" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1vU-E3-pRB" firstAttribute="leading" secondItem="1du-5C-Tt1" secondAttribute="leadingMargin" constant="40" id="4nI-bT-xOY"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rj9-G6-ZbV" secondAttribute="trailing" constant="20" symbolic="YES" id="MQA-5x-YvM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="C4a-2U-lzL" secondAttribute="trailing" constant="43" id="Pjo-ld-ovm"/>
+                                        <constraint firstItem="Mc7-36-rbr" firstAttribute="top" secondItem="1du-5C-Tt1" secondAttribute="topMargin" constant="20" id="TKG-yx-gGM"/>
+                                        <constraint firstItem="C4a-2U-lzL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rj9-G6-ZbV" secondAttribute="trailing" constant="8" symbolic="YES" id="X4i-Px-p0H"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Mc7-36-rbr" secondAttribute="bottom" constant="20" id="Yhd-R8-mYe"/>
+                                        <constraint firstItem="Rj9-G6-ZbV" firstAttribute="leading" secondItem="1vU-E3-pRB" secondAttribute="leading" id="a1E-Qa-lEx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Mc7-36-rbr" secondAttribute="trailing" constant="20" id="ffx-wm-DFq"/>
+                                        <constraint firstItem="C4a-2U-lzL" firstAttribute="baseline" secondItem="Rj9-G6-ZbV" secondAttribute="baseline" id="fps-tr-Ifi"/>
+                                        <constraint firstItem="1vU-E3-pRB" firstAttribute="top" secondItem="Rj9-G6-ZbV" secondAttribute="bottom" constant="41" id="m51-nN-68s"/>
+                                        <constraint firstItem="Mc7-36-rbr" firstAttribute="leading" secondItem="1du-5C-Tt1" secondAttribute="leadingMargin" constant="20" id="poW-fi-m8v"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1vU-E3-pRB" secondAttribute="trailing" constant="20" symbolic="YES" id="wif-7L-5uK"/>
+                                        <constraint firstItem="1vU-E3-pRB" firstAttribute="top" secondItem="1du-5C-Tt1" secondAttribute="topMargin" constant="96" id="xQR-SQ-86E"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorLabel" destination="Rj9-G6-ZbV" id="6Ia-Me-Ymu"/>
+                                    <outlet property="bestsellerButton" destination="Mc7-36-rbr" id="gIa-Lm-TLg"/>
+                                    <outlet property="priceLabel" destination="C4a-2U-lzL" id="avM-YY-UbL"/>
+                                    <outlet property="titleLabel" destination="1vU-E3-pRB" id="a4j-oY-ZsG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,13 +78,35 @@
                             <outlet property="delegate" destination="XGr-yw-OYc" id="kAH-g5-xEO"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="NYTimes Bestsellers" id="XEr-EM-Jdh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh7-p6-EHw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101" y="137"/>
+            <point key="canvasLocation" x="1010.144927536232" y="136.60714285714286"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w3j-Rg-T2V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BYK-9W-pyX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fbR-EQ-P9d">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XGr-yw-OYc" kind="relationship" relationship="rootViewController" id="rEw-TK-nda"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0jH-Kl-I9T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="136.60714285714286"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
