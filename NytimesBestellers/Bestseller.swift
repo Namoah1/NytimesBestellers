@@ -8,13 +8,13 @@
 import Foundation
 
 class Bestseller: Codable {
-    var author = ""
-    var price = ""
-    var title = ""
+    var value = ""
+//    var price = ""
+//    var title = ""
     
     enum CodingKeys: String, CodingKey {
-        case author
-        case title
-        case price
+        case value
+//        case title
+//        case price
     }
 }

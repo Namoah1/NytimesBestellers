@@ -13,14 +13,15 @@ class BestsellerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        tableView.delegate = self
+//        tableView.dataSource = self
         getBestsellers()
 
     }
 
     
     func getBestsellers() {
-        if let url = URL(string: "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json"){
+        if let url = URL(string: "https://api.chucknorris.io/jokes/random"){
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             URLSession.shared.dataTask(with: request) {(data, request, error) in
@@ -28,12 +29,15 @@ class BestsellerTableViewController: UITableViewController {
                     print("There was an error")
                 }else if data != nil {
                     if let bestsellersFromAPI = try? JSONDecoder().decode([Bestseller].self, from: data!){
+                        print(bestsellersFromAPI)
                         DispatchQueue.main.async {
                             self.bestsellers = bestsellersFromAPI
+                            print(self.bestsellers)
                             self.tableView.reloadData()
                         }
 
-                    }
+                    }else{
+                        print("JSON parsing failing")
                 }
                 
             }.resume()
@@ -49,9 +53,9 @@ class BestsellerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BestsellerCell", for: indexPath) as? BestsellerTableViewCell {
             let bestseller = bestsellers[indexPath.row]
-            cell.authorLabel.text = bestseller.author
-            cell.titleLabel.text = bestseller.title
-            cell.priceLabel.text = bestseller.price
+            cell.authorLabel.text = bestseller.value
+//            cell.titleLabel.text = bestseller.title
+//            cell.priceLabel.text = bestseller.price
             return cell
         }else{
             return UITableViewCell()
